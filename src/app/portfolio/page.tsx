@@ -59,7 +59,7 @@ export default function PortfolioPage() {
             포트폴리오
           </h1>
           <p className="text-lg" style={{ color: '#42474c', fontFamily: 'Pretendard, sans-serif' }}>
-            20년 창업지원 현장, 사이드 프로젝트, 투자 포트폴리오
+            창업지원 성과, 사이드 프로젝트, 투자 포트폴리오
           </p>
         </div>
 

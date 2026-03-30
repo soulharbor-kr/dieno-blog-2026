@@ -5,103 +5,112 @@ import { usePathname } from 'next/navigation';
 import { useState } from 'react';
 
 const navItems = [
-  { href: '/', label: 'Home' },
-  { href: '/blog', label: 'Blog' },
-  { href: '/about', label: 'About' },
-  { href: '/portfolio', label: 'Portfolio' },
-  { href: '/dream', label: 'Dream' },
-  { href: '/contact', label: 'Contact' },
+  { href: '/', label: '홈' },
+  { href: '/about', label: '소개' },
+  { href: '/blog', label: '블로그' },
+  { href: '/portfolio', label: '포트폴리오' },
+  { href: '/dream', label: '꿈' },
+  { href: '/contact', label: '연락' },
 ];
 
 export default function Header() {
   const pathname = usePathname();
   const [mobileOpen, setMobileOpen] = useState(false);
 
+  const isActive = (href: string) =>
+    href === '/' ? pathname === '/' : pathname.startsWith(href);
+
   return (
-    <header style={{ backgroundColor: 'var(--primary)' }} className="sticky top-0 z-50 shadow-md">
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-16">
-          {/* Logo */}
-          <Link href="/" className="flex items-center gap-3 group">
-            <div
-              className="w-9 h-9 rounded-lg flex items-center justify-center font-bold text-sm"
-              style={{ backgroundColor: 'var(--secondary)', color: 'var(--primary)' }}
-            >
-              DN
-            </div>
-            <div>
-              <span className="text-white font-bold text-lg tracking-wide" style={{ fontFamily: "'Playfair Display', serif" }}>
-                DieNo
-              </span>
-              <span className="hidden sm:block text-xs" style={{ color: 'var(--secondary)', lineHeight: 1 }}>
-                삶은 소중하다
-              </span>
-            </div>
+    <>
+      <div className="reading-progress-track">
+        <div className="reading-progress-bar" id="reading-progress" />
+      </div>
+
+      <nav
+        className="fixed top-0 w-full z-50 shadow-sm"
+        style={{
+          backgroundColor: 'rgba(249,249,247,0.85)',
+          backdropFilter: 'blur(12px)',
+          WebkitBackdropFilter: 'blur(12px)',
+          marginTop: '1px',
+        }}
+      >
+        <div className="flex justify-between items-center w-full px-6 sm:px-8 py-4 max-w-7xl mx-auto relative">
+          {/* 로고 */}
+          <Link
+            href="/"
+            className="font-headline text-2xl font-bold tracking-tighter"
+            style={{ color: '#012435' }}
+          >
+            DieNo
           </Link>
 
-          {/* Desktop Nav */}
-          <nav className="hidden md:flex items-center gap-1">
-            {navItems.map((item) => {
-              const isActive = item.href === '/' ? pathname === '/' : pathname.startsWith(item.href);
-              return (
+          {/* 데스크탑 네비 */}
+          <div className="hidden md:flex items-center space-x-8 text-base tracking-tight" style={{ fontFamily: 'Pretendard, sans-serif' }}>
+            {navItems.map((item) => (
+              <Link
+                key={item.href}
+                href={item.href}
+                className="transition-all duration-[400ms] ease-in-out pb-1 font-medium"
+                style={
+                  isActive(item.href)
+                    ? { color: '#7C572D', borderBottom: '2px solid #7C572D', fontWeight: 600 }
+                    : { color: '#42474C' }
+                }
+                onMouseEnter={(e) => {
+                  if (!isActive(item.href)) (e.currentTarget as HTMLElement).style.color = '#012435';
+                }}
+                onMouseLeave={(e) => {
+                  if (!isActive(item.href)) (e.currentTarget as HTMLElement).style.color = '#42474C';
+                }}
+              >
+                {item.label}
+              </Link>
+            ))}
+          </div>
+
+          {/* 아이콘 */}
+          <div className="flex items-center space-x-2">
+            <button className="p-2 ink-bleed-hover" style={{ color: '#012435' }} aria-label="검색">
+              <span className="material-symbols-outlined" style={{ fontSize: '22px' }}>search</span>
+            </button>
+            <button
+              className="md:hidden p-2"
+              style={{ color: '#012435' }}
+              onClick={() => setMobileOpen(!mobileOpen)}
+              aria-label="메뉴"
+            >
+              <span className="material-symbols-outlined" style={{ fontSize: '22px' }}>
+                {mobileOpen ? 'close' : 'menu'}
+              </span>
+            </button>
+          </div>
+
+          <div
+            className="absolute bottom-0 left-0 right-0 h-px"
+            style={{ backgroundColor: '#F4F4F2', opacity: 0.15 }}
+          />
+        </div>
+
+        {/* 모바일 메뉴 */}
+        {mobileOpen && (
+          <div style={{ backgroundColor: 'rgba(249,249,247,0.97)', borderTop: '1px solid rgba(194,199,204,0.15)' }}>
+            <div className="max-w-7xl mx-auto px-6 py-4 flex flex-col gap-1">
+              {navItems.map((item) => (
                 <Link
                   key={item.href}
                   href={item.href}
-                  className={`px-4 py-2 rounded-md text-sm font-medium transition-all ${
-                    isActive
-                      ? 'text-white'
-                      : 'text-gray-300 hover:text-white'
-                  }`}
-                  style={isActive ? { backgroundColor: 'rgba(212,165,116,0.25)', color: 'var(--secondary)' } : {}}
+                  onClick={() => setMobileOpen(false)}
+                  className="py-3 text-base font-medium"
+                  style={isActive(item.href) ? { color: '#7C572D', fontWeight: 600 } : { color: '#42474C' }}
                 >
                   {item.label}
                 </Link>
-              );
-            })}
-          </nav>
-
-          {/* Mobile menu button */}
-          <button
-            className="md:hidden text-gray-300 hover:text-white p-2"
-            onClick={() => setMobileOpen(!mobileOpen)}
-            aria-label="메뉴 열기"
-          >
-            {mobileOpen ? (
-              <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
-              </svg>
-            ) : (
-              <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
-              </svg>
-            )}
-          </button>
-        </div>
-
-        {/* Mobile menu */}
-        {mobileOpen && (
-          <div className="md:hidden pb-4" style={{ borderTop: '1px solid rgba(255,255,255,0.1)' }}>
-            <nav className="flex flex-col gap-1 pt-3">
-              {navItems.map((item) => {
-                const isActive = item.href === '/' ? pathname === '/' : pathname.startsWith(item.href);
-                return (
-                  <Link
-                    key={item.href}
-                    href={item.href}
-                    onClick={() => setMobileOpen(false)}
-                    className={`px-4 py-2.5 rounded-md text-sm font-medium ${
-                      isActive ? 'text-white' : 'text-gray-300'
-                    }`}
-                    style={isActive ? { backgroundColor: 'rgba(212,165,116,0.2)', color: 'var(--secondary)' } : {}}
-                  >
-                    {item.label}
-                  </Link>
-                );
-              })}
-            </nav>
+              ))}
+            </div>
           </div>
         )}
-      </div>
-    </header>
+      </nav>
+    </>
   );
 }

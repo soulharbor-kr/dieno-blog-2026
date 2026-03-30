@@ -5,7 +5,7 @@ import Footer from "@/components/Footer";
 
 export const metadata: Metadata = {
   title: "DieNo — 삶은 소중하다",
-  description: "DieNo(다이노) — Sungwan의 개인 블로그. 창업, AI, 신앙, 가족, 학습, 스포츠에 대한 진정성 있는 이야기.",
+  description: "DieNo(다이노) — Sungwan의 큐레이션된 생각의 아카이브. 창업, AI, 신앙, 가족, 학습, 스포츠에 대한 학문적 깊이와 진정성.",
   keywords: ["DieNo", "다이노", "창업지원", "AI", "신앙", "가족", "학습", "NBA"],
   openGraph: {
     title: "DieNo — 삶은 소중하다",
@@ -22,11 +22,19 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="ko" className="h-full">
-      <body className="min-h-full flex flex-col" style={{ backgroundColor: 'var(--background)', color: 'var(--text)' }}>
+      <head>
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="" />
+        <link
+          rel="stylesheet"
+          href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap"
+        />
+      </head>
+      <body className="min-h-full flex flex-col antialiased" style={{ backgroundColor: '#F9F9F7', color: '#1A1C1B' }}>
         <Header />
-        <main className="flex-1">
+        <div className="flex-1">
           {children}
-        </main>
+        </div>
         <Footer />
       </body>
     </html>

@@ -8,7 +8,7 @@ const navItems = [
   { href: '/', label: '홈' },
   { href: '/about', label: '소개' },
   { href: '/blog', label: '블로그' },
-  { href: '/portfolio', label: '포트폴리오' },
+  // { href: '/portfolio', label: '포트폴리오' },
   { href: '/dream', label: '꿈' },
   { href: '/contact', label: '연락' },
 ];

@@ -30,7 +30,6 @@ export default function Footer() {
               {[
                 ['/blog', '블로그'],
                 ['/about', '소개'],
-                ['/portfolio', '포트폴리오'],
                 ['/dream', '꿈'],
                 ['/contact', '연락'],
               ].map(([href, label]) => (

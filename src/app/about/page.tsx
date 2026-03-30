@@ -4,7 +4,7 @@ const timeline = [
   { period: '학부', title: '경제학 + 통계학', org: '학문의 시작', desc: '숫자로 세상을 읽는 법, 데이터가 거짓말하지 않음을 배우다' },
   { period: 'MBA', title: '경영학 석사', org: '이론과 현장의 교차', desc: '창업 현장에서 일하면서 MBA는 필수적 선택이었다' },
   { period: '박사', title: '교육행정 박사', org: '학문과 실전의 교차점', desc: '학문과 실전, 두 세계의 긴장을 연구로 풀어내다' },
-  { period: '현재', title: '대학 창업지원단', org: '~20년 현장 경력', desc: '교원창업 · 학생창업 · 창업중심대학 프로그램 운영' },
+  { period: '현재', title: '대학 창업지원', org: '다년간 현장 경력', desc: '교원창업 · 학생창업 · 창업중심대학 프로그램 운영' },
   { period: '미래', title: '대안학교 교장', org: 'The Dream', desc: '발달장애 포함 통합교육 비전 — 삶은 소중하다' },
 ];
 
@@ -14,7 +14,7 @@ const values = [
   { icon: '📚', en: 'Learning', ko: '학습', desc: '평생 배우는 삶, 끊임없는 성장' },
   { icon: '🤝', en: 'Sharing', ko: '나눔', desc: '배운 것을 아낌없이 나누는 삶' },
   { icon: '✝️', en: 'Faith', ko: '신앙', desc: '기독교 신앙 — 감사와 겸손의 원천' },
-  { icon: '👨‍👩‍👦', en: 'Family', ko: '가족', desc: '아내와 세 아들, 삶의 가장 큰 이유' },
+  { icon: '👨‍👩‍👦', en: 'Family', ko: '가족', desc: '가족, 삶의 가장 큰 이유' },
 ];
 
 export default function AboutPage() {
@@ -41,7 +41,7 @@ export default function AboutPage() {
             style={{ color: '#42474c' }}
           >
             어려움 속에서도 배우고, 배운 것을 나누며, 나누면서 성장하는 삶의 기록.
-            40대 중반, 가족을 사랑하는 기독교인, 대학 창업지원 전문가, 평생학습자.
+            가족을 사랑하는 기독교인, 교육과 창업의 접점에서 일하는 평생학습자.
           </p>
         </div>
       </section>
@@ -154,7 +154,7 @@ export default function AboutPage() {
           </h2>
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
             {[
-              { icon: '💑', label: '아내', desc: '사랑스럽고 든든한 인생 파트너' },
+              { icon: '💑', label: '배우자', desc: '사랑스럽고 든든한 인생 파트너' },
               { icon: '👦', label: '첫째', desc: '착하고 똑똑한, 함께 성장하고 있는 아이' },
               { icon: '👦', label: '둘째', desc: '흥이 넘치는 에너자이저' },
               { icon: '👶', label: '셋째', desc: '알파벳을 사랑하는 귀여운 막내' },

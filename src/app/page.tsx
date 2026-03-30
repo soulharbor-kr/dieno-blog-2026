@@ -98,15 +98,15 @@ export default async function HomePage() {
           </div>
           <div className="space-y-6 order-1 md:order-2">
             <h2 className="font-headline text-4xl leading-tight" style={{ color: '#012435' }}>
-              MBA·박사의 여정: 대학 창업지원에서 미래 교육까지.
+              학문과 현장의 교차점에서 미래 교육을 꿈꾸다.
             </h2>
             <div className="w-12 h-1" style={{ backgroundColor: '#7c572d' }} />
             <p className="text-lg leading-relaxed" style={{ color: '#42474c', fontFamily: 'Pretendard, sans-serif' }}>
-              경제학/통계학(학부) → MBA → 교육행정 박사. 20년간 대학 창업지원 현장에서
-              교원창업과 학생창업을 이끌었습니다. DieNo는 그 모든 세계가 만나는 공간입니다.
+              교육과 창업, 두 세계를 오가며 쌓아온 경험들.
+              DieNo는 그 모든 생각이 만나는 공간입니다.
             </p>
             <p className="text-lg leading-relaxed" style={{ color: '#42474c', fontFamily: 'Pretendard, sans-serif' }}>
-              신앙의 깊이부터 세 아들과의 소소한 일상까지,
+              신앙의 깊이부터 가족과의 소소한 일상까지,
               모든 경험은 배움의 기회입니다.
             </p>
             <Link

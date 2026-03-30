@@ -74,7 +74,7 @@ export default function ContactPage() {
                   <input
                     type="text"
                     required
-                    placeholder="홍길동"
+                    placeholder="이름"
                     value={form.name}
                     onChange={(e) => setForm({ ...form, name: e.target.value })}
                     className="input-underline"

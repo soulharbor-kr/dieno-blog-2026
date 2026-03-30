@@ -46,8 +46,7 @@ export default function DreamPage() {
             </h1>
             <div className="w-16 h-1 mt-8 mb-8" style={{ backgroundColor: '#D4A574' }} />
             <p className="text-xl leading-relaxed" style={{ color: 'rgba(255,255,255,0.8)', fontFamily: 'Pretendard, sans-serif' }}>
-              첫째 아이의 발달장애 진단을 받던 날,<br />
-              이 꿈이 시작되었습니다.<br />
+              삶이 가르쳐준 교육의 의미.<br />
               모든 아이가 함께 성장하는 학교를 만들고 싶습니다.
             </p>
           </div>
@@ -65,16 +64,15 @@ export default function DreamPage() {
           </h2>
           <div className="space-y-5 text-lg leading-relaxed" style={{ color: '#42474c', fontFamily: 'Pretendard, sans-serif' }}>
             <p>
-              첫째 아이가 발달장애 진단을 받던 날을 아직도 기억합니다.
-              교육행정을 공부했고, 대학에서 창업교육을 20년 가까이 해왔지만,
-              내 아이 앞에서는 아무것도 몰랐습니다.
+              교육 현장에서 오래 일하면서, 시스템이 품지 못하는 아이들을 보았습니다.
+              저마다 다른 속도, 다른 방식으로 배우는 아이들.
             </p>
             <p>
               그날부터 통합교육을 새로운 눈으로 바라보기 시작했습니다.
-              교육행정 박사 과정에서 배운 것들이 이론이 아닌 삶이 되었습니다.
+              이론이 아닌 삶에서 길어 올린 교육의 의미를 발견했습니다.
             </p>
             <p>
-              언젠가, 발달장애 아이와 비장애 아이가 함께 배우고 성장하는 대안학교를 세우겠다는
+              언젠가, 다양한 아이들이 함께 배우고 성장하는 대안학교를 세우겠다는
               꿈을 품게 되었습니다.
             </p>
           </div>

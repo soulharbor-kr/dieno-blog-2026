@@ -5,7 +5,7 @@ import Footer from "@/components/Footer";
 
 export const metadata: Metadata = {
   title: "DieNo — 삶은 소중하다",
-  description: "DieNo(다이노) — Sungwan의 큐레이션된 생각의 아카이브. 창업, AI, 신앙, 가족, 학습, 스포츠에 대한 학문적 깊이와 진정성.",
+  description: "DieNo(다이노) — 다이노의 큐레이션된 생각의 아카이브. 창업, AI, 신앙, 가족, 학습, 스포츠에 대한 학문적 깊이와 진정성.",
   keywords: ["DieNo", "다이노", "창업지원", "AI", "신앙", "가족", "학습", "NBA"],
   openGraph: {
     title: "DieNo — 삶은 소중하다",

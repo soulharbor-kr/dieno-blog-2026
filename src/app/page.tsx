@@ -69,7 +69,7 @@ export default async function HomePage() {
           >
             <Image
               src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=800&q=80"
-              alt="DieNo — Sungwan"
+              alt="DieNo — 다이노"
               fill
               className="object-cover"
               style={{ filter: 'grayscale(0.15) contrast(1.05)' }}

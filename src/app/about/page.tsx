@@ -3,7 +3,7 @@ import Link from 'next/link';
 const timeline = [
   { period: '학부', title: '경제학 + 통계학', org: '학문의 시작', desc: '숫자로 세상을 읽는 법, 데이터가 거짓말하지 않음을 배우다' },
   { period: 'MBA', title: '경영학 석사', org: '이론과 현장의 교차', desc: '창업 현장에서 일하면서 MBA는 필수적 선택이었다' },
-  { period: '박사', title: '교육행정 박사', org: '논문: 이공계 창업교원의 역할갈등 사례연구', desc: '학문과 실전, 두 세계의 긴장을 연구로 풀어내다' },
+  { period: '박사', title: '교육행정 박사', org: '학문과 실전의 교차점', desc: '학문과 실전, 두 세계의 긴장을 연구로 풀어내다' },
   { period: '현재', title: '대학 창업지원단', org: '~20년 현장 경력', desc: '교원창업 · 학생창업 · 창업중심대학 프로그램 운영' },
   { period: '미래', title: '대안학교 교장', org: 'The Dream', desc: '발달장애 포함 통합교육 비전 — 삶은 소중하다' },
 ];
@@ -33,7 +33,7 @@ export default function AboutPage() {
             className="font-headline text-5xl md:text-7xl font-bold tracking-tight leading-[1.1]"
             style={{ color: '#012435' }}
           >
-            Sungwan.
+            다이노.
           </h1>
           <div className="w-16 h-1" style={{ backgroundColor: '#7c572d' }} />
           <p
@@ -155,9 +155,9 @@ export default function AboutPage() {
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
             {[
               { icon: '💑', label: '아내', desc: '사랑스럽고 든든한 인생 파트너' },
-              { icon: '👦', label: '첫째 (11세)', desc: '착하고 똑똑한 아이. 발달장애 경험 중, 함께 성장하고 있습니다.' },
-              { icon: '👦', label: '둘째 (8세)', desc: '똑똑하고 흥이 넘치는 에너자이저' },
-              { icon: '👶', label: '셋째 (7세)', desc: '알파벳을 사랑하는 귀여운 막내' },
+              { icon: '👦', label: '첫째', desc: '착하고 똑똑한, 함께 성장하고 있는 아이' },
+              { icon: '👦', label: '둘째', desc: '흥이 넘치는 에너자이저' },
+              { icon: '👶', label: '셋째', desc: '알파벳을 사랑하는 귀여운 막내' },
             ].map((member) => (
               <div key={member.label} className="card-lift p-6 rounded-sm flex gap-4 items-start">
                 <span className="text-2xl">{member.icon}</span>

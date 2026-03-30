@@ -92,7 +92,7 @@ export default function Footer() {
         style={{ borderTop: '1px solid rgba(194,199,204,0.1)' }}
       >
         <p className="text-sm tracking-wide" style={{ color: '#42474C', fontFamily: 'Pretendard, sans-serif' }}>
-          © 2026 DieNo · Sungwan. 모든 권리 보유. Built with Scholarly Intent.
+          © 2026 DieNo · 다이노. 모든 권리 보유. Built with Scholarly Intent.
         </p>
       </div>
     </footer>

@@ -1,4 +1,4 @@
-export type Category = 'startup' | 'ai_tech' | 'faith' | 'family' | 'learning' | 'sports';
+export type Category = 'startup' | 'ai_tech' | 'korea_life' | 'faith' | 'family' | 'learning' | 'sports';
 
 export interface Post {
   id: string;
@@ -26,6 +26,7 @@ export interface ContactMessage {
 export const CATEGORY_LABELS: Record<Category, string> = {
   startup: '창업/스타트업',
   ai_tech: 'AI·테크',
+  korea_life: 'Korea Life',
   faith: '신앙·묵상',
   family: '육아·가족',
   learning: '학습·성장',
@@ -35,6 +36,7 @@ export const CATEGORY_LABELS: Record<Category, string> = {
 export const CATEGORY_COLORS: Record<Category, string> = {
   startup: 'badge-startup',
   ai_tech: 'badge-ai_tech',
+  korea_life: 'badge-ai_tech',
   faith: 'badge-faith',
   family: 'badge-family',
   learning: 'badge-learning',

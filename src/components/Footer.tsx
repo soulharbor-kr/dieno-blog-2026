@@ -53,6 +53,7 @@ export default function Footer() {
               {[
                 ['startup', '창업/스타트업'],
                 ['ai_tech', 'AI·테크'],
+                ['korea_life', 'Korea Life'],
                 ['faith', '신앙·묵상'],
                 ['family', '육아·가족'],
                 ['learning', '학습·성장'],

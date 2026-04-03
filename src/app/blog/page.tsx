@@ -11,6 +11,7 @@ const CATEGORIES: Array<{ key: Category | 'all'; label: string }> = [
   { key: 'all', label: '전체' },
   { key: 'startup', label: '창업/스타트업' },
   { key: 'ai_tech', label: 'AI·테크' },
+  { key: 'korea_life', label: 'Korea Life' },
   { key: 'faith', label: '신앙·묵상' },
   { key: 'family', label: '육아·가족' },
   { key: 'learning', label: '학습·성장' },

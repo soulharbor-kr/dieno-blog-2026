@@ -4,6 +4,9 @@ import BlogCard from '@/components/BlogCard';
 import { getPosts } from '@/lib/supabase';
 import { MOCK_POSTS } from '@/lib/mockData';
 
+// 1시간마다 페이지 재생성 (ISR) — 새 포스트 반영
+export const revalidate = 3600;
+
 async function getRecentPosts() {
   try {
     const posts = await getPosts({ limit: 3 });

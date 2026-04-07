@@ -6,6 +6,9 @@ import { MOCK_POSTS } from '@/lib/mockData';
 import { CATEGORY_LABELS, CATEGORY_COLORS } from '@/types';
 import BlogCard from '@/components/BlogCard';
 
+// 1시간마다 페이지 재생성 (ISR)
+export const revalidate = 3600;
+
 interface PageProps {
   params: Promise<{ slug: string }>;
 }

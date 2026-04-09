@@ -135,7 +135,7 @@ export default function ContactPage() {
                   style={{ color: '#012435', fontFamily: 'Pretendard, sans-serif' }}
                 >
                   <span className="material-symbols-outlined text-xl">mail</span>
-                  contact@dieno.org
+                  soulharbor.dj@gmail.com
                 </a>
               </div>
             </div>

@@ -76,10 +76,10 @@ export default function Footer() {
               연결
             </h4>
             <div className="flex space-x-4">
-              <a href="mailto:contact@dieno.org" className="ink-bleed-hover" style={{ color: '#012435' }}>
+              <a href="mailto:soulharbor.dj@gmail.com" className="ink-bleed-hover" style={{ color: '#012435' }}>
                 <span className="material-symbols-outlined">mail</span>
               </a>
-              <a href="#" className="ink-bleed-hover" style={{ color: '#012435' }}>
+              <a href="https://www.linkedin.com/in/%EC%84%B1%EC%99%84-%ED%99%8D-5945198b/recent-activity/all/" target="_blank" rel="noopener noreferrer" className="ink-bleed-hover" style={{ color: '#012435' }}>
                 <span className="material-symbols-outlined">share</span>
               </a>
             </div>

@@ -130,7 +130,7 @@ export default function ContactPage() {
               <span className="font-label text-xs tracking-widest font-bold uppercase" style={{ color: '#7c572d' }}>직접 연락</span>
               <div className="mt-4 space-y-4">
                 <a
-                  href="mailto:contact@dieno.org"
+                  href="mailto:soulharbor.dj@gmail.com"
                   className="flex items-center gap-3 text-base ink-bleed-hover"
                   style={{ color: '#012435', fontFamily: 'Pretendard, sans-serif' }}
                 >
@@ -144,7 +144,7 @@ export default function ContactPage() {
               <span className="font-label text-xs tracking-widest font-bold uppercase" style={{ color: '#7c572d' }}>소셜 미디어</span>
               <div className="mt-4 space-y-4">
                 {[
-                  { icon: 'link', label: 'LinkedIn', href: '#' },
+                  { icon: 'link', label: 'LinkedIn', href: 'https://www.linkedin.com/in/%EC%84%B1%EC%99%84-%ED%99%8D-5945198b/recent-activity/all/' },
                   { icon: 'rss_feed', label: '네이버 블로그', href: '#' },
                 ].map((s) => (
                   <a

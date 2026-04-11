@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import "./globals.css";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import TrackPageView from "@/components/TrackPageView";
 
 export const metadata: Metadata = {
   title: "DieNo — 삶은 소중하다",
@@ -31,6 +32,7 @@ export default function RootLayout({
         />
       </head>
       <body className="min-h-full flex flex-col antialiased" style={{ backgroundColor: '#F9F9F7', color: '#1A1C1B' }}>
+        <TrackPageView />
         <Header />
         <div className="flex-1">
           {children}

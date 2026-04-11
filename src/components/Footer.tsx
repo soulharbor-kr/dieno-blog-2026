@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import VisitCounter from './VisitCounter';
 
 export default function Footer() {
   return (
@@ -88,12 +89,13 @@ export default function Footer() {
       </div>
 
       <div
-        className="max-w-7xl mx-auto mt-16 pt-8 text-center md:text-left"
+        className="max-w-7xl mx-auto mt-16 pt-8 flex flex-col md:flex-row justify-between items-center gap-3 text-center md:text-left"
         style={{ borderTop: '1px solid rgba(194,199,204,0.1)' }}
       >
         <p className="text-sm tracking-wide" style={{ color: '#42474C', fontFamily: 'Pretendard, sans-serif' }}>
           © 2026 DieNo · 다이노. 모든 권리 보유. Built with Scholarly Intent.
         </p>
+        <VisitCounter />
       </div>
     </footer>
   );

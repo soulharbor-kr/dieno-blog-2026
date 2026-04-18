@@ -1,6 +1,8 @@
 import { notFound } from 'next/navigation';
 import Link from 'next/link';
 import Image from 'next/image';
+import ReactMarkdown from 'react-markdown';
+import remarkGfm from 'remark-gfm';
 import { getPostBySlug, getRelatedPosts } from '@/lib/supabase';
 import { MOCK_POSTS } from '@/lib/mockData';
 import { CATEGORY_LABELS, CATEGORY_COLORS } from '@/types';
@@ -33,7 +35,6 @@ export default async function BlogDetailPage({ params }: PageProps) {
 
   const categoryLabel = CATEGORY_LABELS[post.category];
   const categoryColor = CATEGORY_COLORS[post.category];
-  const contentLines = (post.content || '').split('\n');
 
   return (
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 pt-28">
@@ -80,22 +81,70 @@ export default async function BlogDetailPage({ params }: PageProps) {
 
         {/* 본문 */}
         <article className="prose mb-12">
-          {contentLines.map((line, i) => {
-            if (line.startsWith('# '))
-              return <h1 key={i} className="font-headline text-3xl font-bold mt-8 mb-4" style={{ color: '#012435' }}>{line.slice(2)}</h1>;
-            if (line.startsWith('## '))
-              return <h2 key={i} className="font-headline text-xl font-bold mt-6 mb-3" style={{ color: '#012435' }}>{line.slice(3)}</h2>;
-            if (line.startsWith('### '))
-              return <h3 key={i} className="font-headline text-lg font-semibold mt-5 mb-2" style={{ color: '#012435' }}>{line.slice(4)}</h3>;
-            if (line.startsWith('> '))
-              return (
-                <blockquote key={i} className="border-l-4 pl-5 py-2 my-6 italic" style={{ borderColor: '#D4A574', color: '#42474c' }}>
-                  {line.slice(2)}
+          <ReactMarkdown
+            remarkPlugins={[remarkGfm]}
+            components={{
+              h1: ({ children }) => (
+                <h1 className="font-headline text-3xl font-bold mt-8 mb-4" style={{ color: '#012435' }}>{children}</h1>
+              ),
+              h2: ({ children }) => (
+                <h2 className="font-headline text-xl font-bold mt-6 mb-3" style={{ color: '#012435' }}>{children}</h2>
+              ),
+              h3: ({ children }) => (
+                <h3 className="font-headline text-lg font-semibold mt-5 mb-2" style={{ color: '#012435' }}>{children}</h3>
+              ),
+              p: ({ children }) => (
+                <p className="mb-4 leading-relaxed" style={{ color: '#1a1c1b', fontFamily: 'Pretendard, sans-serif' }}>{children}</p>
+              ),
+              a: ({ href, children }) => (
+                <a
+                  href={href}
+                  target={href?.startsWith('http') ? '_blank' : undefined}
+                  rel={href?.startsWith('http') ? 'noopener noreferrer' : undefined}
+                  className="underline underline-offset-2 transition-colors duration-200 hover:opacity-80"
+                  style={{ color: '#7c572d' }}
+                >
+                  {children}
+                </a>
+              ),
+              strong: ({ children }) => (
+                <strong className="font-semibold" style={{ color: '#012435' }}>{children}</strong>
+              ),
+              em: ({ children }) => <em className="italic">{children}</em>,
+              blockquote: ({ children }) => (
+                <blockquote className="border-l-4 pl-5 py-2 my-6 italic" style={{ borderColor: '#D4A574', color: '#42474c' }}>
+                  {children}
                 </blockquote>
-              );
-            if (line.trim() === '') return <div key={i} className="h-3" />;
-            return <p key={i} className="mb-3 leading-relaxed" style={{ color: '#1a1c1b', fontFamily: 'Pretendard, sans-serif' }}>{line}</p>;
-          })}
+              ),
+              ul: ({ children }) => (
+                <ul className="list-disc pl-6 mb-4 space-y-1" style={{ color: '#1a1c1b', fontFamily: 'Pretendard, sans-serif' }}>{children}</ul>
+              ),
+              ol: ({ children }) => (
+                <ol className="list-decimal pl-6 mb-4 space-y-1" style={{ color: '#1a1c1b', fontFamily: 'Pretendard, sans-serif' }}>{children}</ol>
+              ),
+              li: ({ children }) => <li className="leading-relaxed">{children}</li>,
+              hr: () => <hr className="my-8" style={{ borderColor: 'rgba(194,199,204,0.3)' }} />,
+              table: ({ children }) => (
+                <div className="overflow-x-auto my-6">
+                  <table className="w-full text-sm" style={{ fontFamily: 'Pretendard, sans-serif' }}>{children}</table>
+                </div>
+              ),
+              thead: ({ children }) => (
+                <thead style={{ backgroundColor: '#F4F4F2', color: '#012435' }}>{children}</thead>
+              ),
+              th: ({ children }) => (
+                <th className="text-left p-3 font-semibold" style={{ borderBottom: '1px solid #e0e0e0' }}>{children}</th>
+              ),
+              td: ({ children }) => (
+                <td className="p-3" style={{ borderBottom: '1px solid #e8e8e8' }}>{children}</td>
+              ),
+              code: ({ children }) => (
+                <code className="px-1.5 py-0.5 rounded text-sm" style={{ backgroundColor: '#F4F4F2', color: '#7c572d' }}>{children}</code>
+              ),
+            }}
+          >
+            {post.content || ''}
+          </ReactMarkdown>
         </article>
 
         {/* 태그 */}

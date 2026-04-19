@@ -1,14 +1,10 @@
-import { createClient } from '@supabase/supabase-js';
-
 const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL;
 const supabaseAnonKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY;
 
 if (!supabaseUrl || !supabaseAnonKey) {
-  console.error('환경변수가 없습니다. NEXT_PUBLIC_SUPABASE_URL과 NEXT_PUBLIC_SUPABASE_ANON_KEY를 설정해주세요.');
+  console.error('환경변수가 없습니다.');
   process.exit(1);
 }
-
-const supabase = createClient(supabaseUrl, supabaseAnonKey);
 
 const post = {
   title: 'AI 잘 쓰고 있다고 생각했는데, 막상 물어보니 모르겠더라고요',
@@ -93,13 +89,24 @@ AI 시대에 "나는 어디쯤 있는가"를 한번 정직하게 들여다볼 �
   reading_time: 4,
 };
 
-const { data, error } = await supabase.from('posts').insert(post).select().single();
+const res = await fetch(`${supabaseUrl}/rest/v1/posts`, {
+  method: 'POST',
+  headers: {
+    'Content-Type': 'application/json',
+    'apikey': supabaseAnonKey,
+    'Authorization': `Bearer ${supabaseAnonKey}`,
+    'Prefer': 'return=representation',
+    'Origin': supabaseUrl,
+  },
+  body: JSON.stringify(post),
+});
 
-if (error) {
-  console.error('삽입 실패:', error.message);
+if (!res.ok) {
+  const err = await res.text();
+  console.error('삽입 실패:', err);
   process.exit(1);
 }
 
+const data = await res.json();
 console.log('포스팅 완료!');
-console.log('slug:', data.slug);
-console.log('URL: /blog/' + data.slug);
+console.log('URL: /blog/' + data[0].slug);

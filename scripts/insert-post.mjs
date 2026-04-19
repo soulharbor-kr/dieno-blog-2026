@@ -1,7 +1,7 @@
 const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL;
-const supabaseAnonKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY;
+const serviceRoleKey = process.env.SUPABASE_SERVICE_ROLE_KEY;
 
-if (!supabaseUrl || !supabaseAnonKey) {
+if (!supabaseUrl || !serviceRoleKey) {
   console.error('환경변수가 없습니다.');
   process.exit(1);
 }
@@ -93,8 +93,8 @@ const res = await fetch(`${supabaseUrl}/rest/v1/posts`, {
   method: 'POST',
   headers: {
     'Content-Type': 'application/json',
-    'apikey': supabaseAnonKey,
-    'Authorization': `Bearer ${supabaseAnonKey}`,
+    'apikey': serviceRoleKey,
+    'Authorization': `Bearer ${serviceRoleKey}`,
     'Prefer': 'return=representation',
     'Origin': supabaseUrl,
   },

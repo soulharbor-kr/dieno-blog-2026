@@ -2,7 +2,7 @@ import Link from 'next/link';
 
 const timeline = [
   { period: '학부', title: '경제학 + 통계학', org: '학문의 시작', desc: '숫자로 세상을 읽는 법, 데이터가 거짓말하지 않음을 배우다' },
-  { period: 'MBA', title: '경영학 석사', org: '이론과 현장의 교차', desc: '창업 현장에서 일하면서 MBA는 필수적 선택이었다' },
+  { period: 'MBA', title: '경영학 석사', org: '이론과 현장의 교차', desc: '조직을 이해하기 위해서는 MBA는 필수적 선택이었다' },
   { period: '박사', title: '교육행정 박사', org: '학문과 실전의 교차점', desc: '학문과 실전, 두 세계의 긴장을 연구로 풀어내다' },
   { period: '현재', title: '대학 창업지원', org: '다년간 현장 경력', desc: '교원창업 · 학생창업 · 창업중심대학 프로그램 운영' },
   { period: '미래', title: '대안학교 교장', org: 'The Dream', desc: '발달장애 포함 통합교육 비전 — 삶은 소중하다' },

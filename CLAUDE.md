@@ -59,4 +59,5 @@ ADMIN_PASSWORD                  # Protects GET /api/admin/stats
 - Blog posts are stored in Supabase (not as local markdown files), though `gray-matter` is available as a dependency.
 - The admin stats dashboard at `/admin/stats` uses `sessionStorage` for password persistence — there is no server-side session.
 - Turbopack is enabled in `next.config.ts`; do not switch to webpack unless a Turbopack incompatibility is confirmed.
-- Image external domains are allowlisted in `next.config.ts` (`images.unsplash.com`, `lh3.googleusercontent.com`).
+- Image external domains are allowlisted in `next.config.ts` (`images.unsplash.com`, `lh3.googleusercontent.com`). `images.unoptimized` is set to `true` because Railway's server IP is blocked by Unsplash CDN — browsers fetch images directly.
+- When inserting posts, `cover_image` must **not** contain angle brackets (`< >`). Use a plain URL string only: `https://images.unsplash.com/photo-xxx?w=800&q=80`. Also populate `featured_image_url` with the same value.

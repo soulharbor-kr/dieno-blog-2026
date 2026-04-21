@@ -6,6 +6,18 @@ const supabaseAnonKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY || '';
 
 export const supabase = createClient(supabaseUrl, supabaseAnonKey);
 
+// 외부 경로(n8n 등)로 들어온 URL이 <https://...> 형태로 저장돼 이미지가 깨지는 사례 방어.
+function cleanUrl(u?: string | null): string | null {
+  if (!u) return u ?? null;
+  return u.replace(/[<>]/g, '').trim();
+}
+
+function sanitizePost<T extends Partial<Post>>(p: T): T {
+  if (p.cover_image) p.cover_image = cleanUrl(p.cover_image) ?? undefined;
+  if (p.featured_image_url) p.featured_image_url = cleanUrl(p.featured_image_url) ?? undefined;
+  return p;
+}
+
 // ── Posts ──────────────────────────────────────────
 
 export async function getPosts(options?: {
@@ -38,7 +50,7 @@ export async function getPosts(options?: {
 
   const { data, error } = await query;
   if (error) throw error;
-  return data as Post[];
+  return (data as Post[]).map(sanitizePost);
 }
 
 export async function getPostBySlug(slug: string) {
@@ -50,7 +62,7 @@ export async function getPostBySlug(slug: string) {
     .single();
 
   if (error) throw error;
-  return data as Post;
+  return sanitizePost(data as Post);
 }
 
 export async function getRelatedPosts(category: string, excludeSlug: string, limit = 3) {
@@ -63,7 +75,7 @@ export async function getRelatedPosts(category: string, excludeSlug: string, lim
     .limit(limit);
 
   if (error) throw error;
-  return data as Partial<Post>[];
+  return (data as Partial<Post>[]).map(sanitizePost);
 }
 
 // ── Contact ────────────────────────────────────────

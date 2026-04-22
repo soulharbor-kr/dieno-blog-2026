@@ -1,4 +1,13 @@
-export type Category = 'startup' | 'ai_tech' | 'korea_life' | 'faith' | 'family' | 'learning' | 'sports';
+export type Category =
+  | 'startup'
+  | 'ai_tech'
+  | 'korea_life'
+  | 'faith'
+  | 'family'
+  | 'learning'
+  | 'sports'
+  | 'skku_ai_edu'
+  | 'skku_ai_startup';
 
 export interface Post {
   id: string;
@@ -9,6 +18,7 @@ export interface Post {
   category: Category;
   tags: string[];
   cover_image?: string;
+  featured_image_url?: string;
   published: boolean;
   created_at: string;
   updated_at: string;
@@ -31,6 +41,8 @@ export const CATEGORY_LABELS: Record<Category, string> = {
   family: '육아·가족',
   learning: '학습·성장',
   sports: 'NBA·스포츠',
+  skku_ai_edu: '대학·AI교육',
+  skku_ai_startup: '대학·AI창업',
 };
 
 export const CATEGORY_COLORS: Record<Category, string> = {
@@ -41,4 +53,6 @@ export const CATEGORY_COLORS: Record<Category, string> = {
   family: 'badge-family',
   learning: 'badge-learning',
   sports: 'badge-sports',
+  skku_ai_edu: 'badge-learning',
+  skku_ai_startup: 'badge-startup',
 };

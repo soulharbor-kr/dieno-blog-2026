@@ -71,11 +71,11 @@ export default async function HomePage() {
             style={{ backgroundColor: '#F4F4F2', boxShadow: '0 20px 40px rgba(26,28,27,0.12)' }}
           >
             <Image
-              src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=800&q=80"
+              src="/images/hero.webp"
               alt="DieNo — 다이노"
               fill
               className="object-cover"
-              style={{ filter: 'grayscale(0.15) contrast(1.05)' }}
+              sizes="(max-width: 768px) 100vw, 40vw"
               priority
             />
           </div>

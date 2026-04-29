@@ -26,10 +26,12 @@ export async function getPosts(options?: {
   limit?: number;
   offset?: number;
 }) {
+  // 미래 날짜로 예약된 포스트(created_at > now)는 발행 시각 도달 전까지 목록에서 숨김
   let query = supabase
     .from('posts')
     .select('*')
     .eq('published', true)
+    .lte('created_at', new Date().toISOString())
     .order('created_at', { ascending: false });
 
   if (options?.category) {
@@ -72,6 +74,7 @@ export async function getRelatedPosts(category: string, excludeSlug: string, lim
     .eq('published', true)
     .eq('category', category)
     .neq('slug', excludeSlug)
+    .lte('created_at', new Date().toISOString())
     .limit(limit);
 
   if (error) throw error;

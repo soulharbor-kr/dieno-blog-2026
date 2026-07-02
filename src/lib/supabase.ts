@@ -18,6 +18,12 @@ function sanitizePost<T extends Partial<Post>>(p: T): T {
   return p;
 }
 
+// dieno.org에 속하는 카테고리. senior_* 등 타 사이트 카테고리는 제외.
+const DIENO_CATEGORIES = [
+  'startup', 'ai_tech', 'learning', 'family', 'faith',
+  'sports', 'korea_life', 'skku_ai_edu', 'skku_ai_startup',
+];
+
 // ── Posts ──────────────────────────────────────────
 
 export async function getPosts(options?: {
@@ -36,6 +42,9 @@ export async function getPosts(options?: {
 
   if (options?.category) {
     query = query.eq('category', options.category);
+  } else {
+    // 카테고리 미지정 시 dieno.org 소속 카테고리만 반환
+    query = query.in('category', DIENO_CATEGORIES);
   }
 
   if (options?.search) {
